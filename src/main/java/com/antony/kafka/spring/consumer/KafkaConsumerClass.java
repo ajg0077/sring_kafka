@@ -6,11 +6,14 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class KafkaConsumerClass {
-    @KafkaListener(topics = {"hobbit"}, groupId = "spring-boot-kafka")
-    public void consumer(ConsumerRecord<Integer, String> record) {
+    //    @KafkaListener(topics = {"hobbit"}, groupId = "spring-boot-kafka")
+//    public void consumer(ConsumerRecord<Integer, String> record) {
+//        System.out.println("received= " + record.value() + " with key " + record.key());
+//    }
+    @KafkaListener(topics = {"streams-wordcount-output"}, groupId = "spring-boot-kafka")
+    public void consumer(ConsumerRecord<String, Long> record) {
         System.out.println("received= " + record.value() + " with key " + record.key());
     }
-
     /*public void consumer(String quote) {
         System.out.println(quote);
     }*/

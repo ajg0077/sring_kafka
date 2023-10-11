@@ -17,4 +17,13 @@ public class KafkaNewTopic {
                 .build();
     }
 
+    @Bean
+    NewTopic streams_wordcount_output() {
+        return TopicBuilder
+                .name("streams-wordcount-output")
+                .partitions(6)
+                .replicas(3)
+                .build();
+    }
+
 }
